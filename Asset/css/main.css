@@ -1,0 +1,60 @@
+body{
+    font-family: "PT Sans",Roboto,sans-serif;    
+    color: #383838;   
+}
+.bg-codiweb{
+    background: #21618cff;
+}
+.navbar-brand{
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    font-weight: 700;
+}
+.card{
+    word-wrap: break-word;
+}
+.card-shadow{
+    border: 0;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0, .22);
+    -moz-box-shadow: 0 1px 2px 0 rgba(0,0,0, .22);
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0, .22);
+    -o-box-shadow: 0 1px 2px 0 rgba(0,0,0, .22);
+
+}
+.card-title{
+    letter-spacing: .01rem;
+}
+.card-title, .navbar-barand, b, strong{
+    font-weight: 700;
+}
+.lead{
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+.img-about{
+
+    width: 600px;
+    height: auto;
+}
+.codiweb{
+    border-radius: 0px;
+    color: #fff;
+    background: #21618cff; 
+}
+.post-content{
+    margin-bottom: 1.5rem;
+    letter-spacing: .01rem;
+}
+@media(max-width: 768px){
+    .card .card-body{
+        width: 100%;
+    }
+    header.jumbotron .jumbotron-fluid h1 p{
+        font-size: 20px;
+    }
+}
