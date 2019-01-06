@@ -37,7 +37,6 @@ body{
     font-weight: 300;
 }
 .img-about{
-
     width: 600px;
     height: auto;
 }
@@ -49,6 +48,16 @@ body{
 .post-content{
     margin-bottom: 1.5rem;
     letter-spacing: .01rem;
+}
+.kategori li a{
+    text-decoration: none;
+    font-size: 20px;
+    color: #21618cff;
+}
+svg.icon{
+    max-width: 1.5rem;
+    max-height: 1.5rem;
+    margin-right: .5rem;
 }
 @media(max-width: 768px){
     .card .card-body{

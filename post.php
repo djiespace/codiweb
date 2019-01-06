@@ -59,6 +59,7 @@
                                 <h6 class="mb-1">Pengenalan HTML5 untuk pemula</h6>
                                 <small class="text-secondary">10 Des 2018</small>
                             </div>
+                            
                         </div> 
                     </a>
                 </div>
