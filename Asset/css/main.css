@@ -48,6 +48,10 @@ body{
 .post-content{
     margin-bottom: 1.5rem;
     letter-spacing: .01rem;
+    font-family: Georgia, 'Times New Roman',Merriweather, Cambria, Times, serif;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: #383838;
 }
 .kategori li a{
     text-decoration: none;
@@ -59,11 +63,13 @@ svg.icon{
     max-height: 1.5rem;
     margin-right: .5rem;
 }
-@media(max-width: 768px){
-    .card .card-body{
-        width: 100%;
+
+@media only screen and (max-width: 570px){
+    .kategori{
+       font-size: 14px;
     }
-    header.jumbotron .jumbotron-fluid h1 p{
-        font-size: 20px;
+    .post-outer{
+        padding-right: 0 !important;
+        padding-left: 0 !important;
     }
 }

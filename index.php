@@ -9,12 +9,10 @@
     //include all pages
     if ($_GET['page'] == 'article' || $_GET['page'] == '') {
         include "artikel.php";
-    }elseif ($_GET['page'] == 'about') {
-        include "about.php";
     }elseif ($_GET['page'] == 'post') {
         include "post.php";
-    }elseif ($_GET['page'] == 'php') {
-        include "Category/PHP.php";
+    }elseif ($_GET['page'] == 'kategori') {
+        include "category.php";
     }
 
     //include footer

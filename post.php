@@ -1,6 +1,6 @@
 <div class="container my-5">
     <div class="row">
-        <div class="col-sm-12 col-lg-8 post-outer">
+        <div class="col-sm-12 col-lg-8 post-outer mb-2">
             <article class="card">
                 <div class="card-body p-md-5">
                     <div class="post-header">
@@ -33,7 +33,7 @@
                 </div>
             </article>
         </div>
-        <div class="col-sm-12 col-lg-4 ">
+        <div class="col-sm-12 col-lg-4">
             <h5>Susah Belajar Programming?</h5>
             <p>
             Dapatkan panduan dan tips eksklusif dari Codiweb untuk membantumu belajar pemrograman

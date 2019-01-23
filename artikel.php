@@ -2,8 +2,8 @@
 	<div class="jumbotron jumbotron-fluid bg-dark text-white m-0">
 	    <div class="container">
 			<div class="row">	
-				<div class="col-9">
-					<h1>Programmer Masih Belajar Linux</h1>
+				<div class="col">
+					<h1>Programmer Pengguna Linux</h1>
 					<p class="lead">Belajar apapun tentang programming dengan linux, sama-sama belajar.</p>
 				</div>
 			</div>		
