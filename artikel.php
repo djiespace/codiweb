@@ -13,66 +13,23 @@
 <article class="card-post my-5">
     <div class="container">
         <div class="row">
+            <?php
+                $query = mysqli_query($db, "SELECT * FROM tbl_artikel ORDER BY Tanggal_artikel DESC");
+                while($artikel = mysqli_fetch_array($query)){
+            ?>
             <div class="col-md-6 col-lg-4 mb-4 d-flex">
                 <div class="card card-shadow">
-                    <img class="card-img-top lazyloaded" src="Asset/img/pengenalan-html5-untuk-pemula.svg">
+                    <img class="card-img-top lazyloaded" src="http://localhost/codiweb/image.php?img=<?=$artikel['Img_artikel']?>" style="height:50px;">
                     <div class="card-body">
                         <h5 class="card-title">
-                            <a class="text-dark" href="?page=post">Pengenalan HTML5 Pemula</a>
+                            <a class="text-dark" href="?page=post&id=<?=$artikel['Id_artikel']?>"> <?=$artikel['Judul_artikel']?></a>
                         </h5>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 mb-4 d-flex">
-                <div class="card card-shadow">
-                    <img class="card-img-top lazyloaded" src="Asset/img/pengenalan-html5-untuk-pemula.svg">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a class="text-dark">Pengenalan HTML5 </a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4 d-flex">
-                <div class="card card-shadow">
-                    <img class="card-img-top lazyloaded" src="Asset/img/pengenalan-html5-untuk-pemula.svg">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a class="text-dark">Pengenalan HTML5 </a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4 d-flex">
-                <div class="card card-shadow">
-                    <img class="card-img-top lazyloaded" src="Asset/img/pengenalan-html5-untuk-pemula.svg">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a class="text-dark">Pengenalan HTML5 </a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4 d-flex">
-                <div class="card card-shadow">
-                    <img class="card-img-top lazyloaded" src="Asset/img/pengenalan-html5-untuk-pemula.svg">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a class="text-dark">Pengenalan HTML5 </a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4 d-flex">
-                <div class="card card-shadow">
-                    <img class="card-img-top lazyloaded" src="Asset/img/pengenalan-html5-untuk-pemula.svg">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a class="text-dark">Pengenalan HTML5 </a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
+            <?php    
+            } 
+            ?>
             <div class="col-12 mt-4">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">

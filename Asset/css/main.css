@@ -58,7 +58,7 @@ body{
     font-size: 20px;
     color: #21618cff;
 }
-svg.icon{
+.icon{
     max-width: 1.5rem;
     max-height: 1.5rem;
     margin-right: .5rem;
