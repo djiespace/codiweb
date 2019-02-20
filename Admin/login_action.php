@@ -10,7 +10,7 @@ $sql = mysqli_num_rows($query);
 if ($sql > 0) {
     $_SESSION['username'] = $username;
     $_SESSION['status'] = "login";
-    header("location:index.php");
+    header("location:index.php?pesan=berhasil_login");
 }else{
     header("location:login.php?=gagal");
 }

@@ -1,4 +1,4 @@
-<div class="card-home bdr-biru">
+<div class="card-home bdr-biru sidebar">
     <div class="card-body">
         <ul class="list-group list-group-flush">
             <a href="?page=data_user" class="list-group-item list-group-item-action"><i class="fa fa-user"></i> Profile</a>
@@ -15,7 +15,8 @@
             <div class="dropdown-container">
                 <a href="?page=data_kategori"><i class="fa fa-list"></i> Data Kategori</a>
                 <a href="?page=tambah_kategori"><i class="fa fa-edit"></i> Tambah Kategori</a>
-            </div>            <a href="?data_page" class="list-group-item list-group-item-action">Data Page</a>
+            </div>            
+            <a href="?data_page" class="list-group-item list-group-item-action">Data Page</a>
             <a href="login.php" class="list-group-item list-group-item-action">Logout</a>
         </ul>
     </div>

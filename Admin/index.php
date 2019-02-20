@@ -1,5 +1,5 @@
 <?php
-	require_once ('Config/config.php');
+	require_once ('../Config/config.php');
 	session_start();
     if ($_SESSION['status'] != "login") {
         header("location:login.php?pesan=belum_login");
@@ -32,8 +32,8 @@
 	
 </head>
 <body class="bg-light">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-biru fixed-top">
-        <div class="container">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-codiweb fixed-top ">
+        <div class="container-fluid">
 			<div class="navbar-brand">
 				<img src="../Asset/img/codiweb-logo-2.svg" width="50" height="50" class="">
 				Selamat Datang, <?php echo $_SESSION['username']; ?>
@@ -41,14 +41,46 @@
         </div>
 	</nav>
 	
-	<div class="container main">
-		<div class="row mt-5" >
+	<div class="container-fluid main">
+		<div class="row mb-5" >
 			<div class="col-3">
-				<div class="sidebar">
-					<?php require_once ("sidebar.php"); ?>
-				</div>
+				<?php require_once ("sidebar.php"); ?>
 			</div>
 			<div class="col-9">
+			<?php if(isset($_GET['pesan'])) { ?>
+                <div class="form-group alert alert-success alert-dismissible fade show" role="alert">
+					<?php 
+                    if($_GET['pesan'] == "sukses_tambah_artikel"){
+                        echo "<p><i class=fa fa-success></i> Anda Telah Berhasil Tambah Artikel</p>";
+                    }if($_GET['pesan'] == "gagal_tambah_artikel"){
+                        echo "<p><i class=fa fa-success></i> Anda Telah Gagal Tambah Artikel</p>";
+                    }if($_GET['pesan'] == "sukses_delete_artikel"){
+                        echo "<p><i class=fa fa-success></i> Anda Telah Berhasil Menghapus Artikel</p>";
+                    }if($_GET['pesan'] == "gagal_update_artikel"){
+                        echo "<p><i class=fa fa-success></i> Anda Telah Gagal Update Artikel</p>";
+                    }if($_GET['pesan'] == "sukses_update_artikel"){
+                        echo "<p><i class=fa fa-success></i> Anda Telah Berhasil Update Artikel</p>";
+                    }if($_GET['pesan'] == "gagal_upload_gambar"){
+                        echo "<p><i class=fa fa-warning></i> Gagal Upload Gambar</p>";
+                    }if($_GET['pesan'] == "sukses_tambah_kategori"){
+                        echo "<p><i class=fa fa-success></i> Anda Telah Berhasil Tambah Kategori</p>";
+                    }if($_GET['pesan'] == "gagal_tambah_kategori"){
+                        echo "<p><i class=fa fa-success></i> Anda Telah Gagal Tambah Kategori</p>";
+                    }if($_GET['pesan'] == "sukses_delete_kategori"){
+                        echo "<p><i class=fa fa-success></i> Anda Telah Berhasil Menghapus Kategori</p>";
+                    }if($_GET['pesan'] == "gagal_update_kategori"){
+                        echo "<p><i class=fa fa-success></i> Anda Telah Gagal Update Kategori</p>";
+                    }if($_GET['pesan'] == "sukses_update_kategori"){
+                        echo "<p><i class=fa fa-success></i> Anda Telah Berhasil Update Kategori</p>";
+                    }if($_GET['pesan'] == "berhasil_login"){
+                        echo "<p><i class=fa fa-success></i>Selamat Datang ". $_SESSION['username'] ." semoga harimu menyenangkan";
+                    }
+					?>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    					<span aria-hidden="true">&times;</span>
+ 					</button>
+                </div>
+            <?php } ?>
 				<?php
 					switch (@$_GET['page']) {
 						case 'data_user':
@@ -65,6 +97,9 @@
 						break;
 						case 'update_artikel':
 							include "Artikel/form_update.php";
+						break;
+						case 'update_artikel_action':
+							include "Artikel/update.php";
 						break;
 						case 'tambah_artikel_action':
 							include "Artikel/tambah.php";
@@ -101,6 +136,18 @@
 			</div>
 		</div>
 	</div>
+	
+	<footer class="container-fluid border bg-white border-bottom-0 border-left-0 border-right-0">
+		<div class="container pt-2 pb-2 pt-md-3 pb-md-3">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 text-center text-md-right pt-2">
+					&copy; 2018
+					<a href="">Codiweb | Administator</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
 </body>
 </html>
 	

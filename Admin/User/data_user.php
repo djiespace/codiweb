@@ -1,8 +1,12 @@
+<?php
+    $query = mysqli_query($db,"SELECT * FROM tbl_user");
+    $data=mysqli_fetch_array($query);
+?>
 <div class="card-home bdr-biru">
     <div class="card-body">
         <div class="row">
             <div class="col-3">
-                <img src="../Asset/img/boy.svg" class="img-thumbnail mx-auto d-block" width="200px" height="200px">
+                <img src="http://localhost/codiweb/image.php?img=<?=$artikel['Img_user']?>" class="img-thumbnail mx-auto d-block" width="200px" height="200px">
             </div>
             <div class="col-9">
                 <h2 class="d-inline-block ">Data User</h2>
@@ -14,54 +18,33 @@
                         </tr>
                     </thead>
                     <tbody>
+                        
                         <tr>
                             <th class="row">Nama Lengkap :</th>
-                            <td>Adjie Ramadhani</td>
+                            <td><?=$data['Nama_lengkap']?></td>
                         </tr>
                         <tr>
                             <th class="row">Email :</th>
-                            <td>marketadjie@gmail.com</td>
+                            <td><?=$data['Email']?></td>
                         </tr>
                         <tr>
                             <th class="row">Username :</th>
-                            <td>marketadjie</td>
+                            <td><?=$data['Username']?></td>
                         </tr>
                         <tr>
                             <th class="row">Password :</th>
-                            <td>adjie</td>
+                            <td><?=$data['Password']?></td>
                         </tr>
                         <tr>
                             <th class="row">Deskripsi :</th>
-                            <td>Programmer Pengguna linux dan baik hati</td>
+                            <td><?=$data['Nama_lengkap']?></td>
                         </tr>
+                        
                     </tbody>
                 </table>
                 <a class="btn btn-default bg-hijau float-right" href="?page=update_user" role="button">
                     <i class="fa fa-edit"></i> Update Data
                 </a>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row mt-3">
-    <div class="col-6">
-        <div class="card-home bdr-biru">
-            <div class="card-body">
-                <h2>Your Actifity</h2>
-
-            </div>
-        </div>
-    </div>
-    <div class="col-6">
-        <div class="card-home bdr-biru">
-            <div class="card-body">
-                <h2>Notifikasi</h2>
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>Hai Admin</strong> You should check in on some of those fields below.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
             </div>
         </div>
     </div>

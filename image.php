@@ -4,16 +4,10 @@
     $ext = end($ext);
     function Image($img,$ext)
     {
-        switch ($ext) {
-            case 'svg':
-                $test ='Content-Type: text/html';
-                break;
-            default :
-                $test = 'Content-Type: image';
-                break;
-            }
-        header($test);
+        header("Content-Type: image");
         readfile(realpath('.') . '/Asset/img/'.$img);
     }
+    // ImageKategori($img,$ext);
     Image($img,$ext);
+    // var_dump(readfile(realpath('.') . '/Asset/img/'.$img));
 ?>

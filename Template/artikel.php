@@ -14,12 +14,21 @@
     <div class="container">
         <div class="row">
             <?php
-                $query = mysqli_query($db, "SELECT * FROM tbl_artikel ORDER BY Tanggal_artikel DESC");
+                $batas = 6;	
+                $halaman = @$_GET['page'];
+                if(empty($halaman)){
+                    $posisi = 0;
+                    $halaman = 1;
+                }else{
+                    $posisi = ($halaman - 1) * $batas;
+                }
+                $query = mysqli_query($db, "SELECT * FROM tbl_artikel ORDER BY Tanggal_artikel DESC LIMIT $posisi,$batas");
+                $row = mysqli_num_rows($query);
                 while($artikel = mysqli_fetch_array($query)){
             ?>
             <div class="col-md-6 col-lg-4 mb-4 d-flex">
                 <div class="card card-shadow">
-                    <img class="card-img-top lazyloaded" src="http://localhost/codiweb/image.php?img=<?=$artikel['Img_artikel']?>" style="height:50px;">
+                    <img class="card-img-top lazyloaded" src="http://localhost/codiweb/image.php?img=artikel/<?=$artikel['Img_artikel']?>">
                     <div class="card-body">
                         <h5 class="card-title">
                             <a class="text-dark" href="?page=post&id=<?=$artikel['Id_artikel']?>"> <?=$artikel['Judul_artikel']?></a>
@@ -30,6 +39,12 @@
             <?php    
             } 
             ?>
+            <br>
+            <?php
+                $paging = mysqli_query($db,"SELECT * FROM tbl_artikel");
+                $jumData = mysqli_num_rows($paging);
+                $jumHalaman = ceil($jumData/$batas);
+            ?>
             <div class="col-12 mt-4">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
@@ -39,9 +54,15 @@
                                 <span class="sr-only">Previous</span>
                             </a>  
                         </li>
-                        <li class="page-item"><a class="page-link" href="">1</a></li>
-                        <li class="page-item"><a class="page-link" href="">2</a></li>
-                        <li class="page-item"><a class="page-link" href="">3</a></li>
+                        <?php 
+                        for($u=1; $u<=$jumHalaman; $u++){
+                            if ($u != $halaman) {
+                                echo '<li class="page-item"><a class="page-link" href=\"?page=artikel&halaman='.$u.'">'.$u.'</a></li>';
+                            }else{
+                                echo '<li class="page-item"><a class="page-link" href="">$u</a></li>';
+                            }
+                        }
+                        ?>
                         <li class="disabled page-item"><a class="page-link" href="">...</a></li>
                         <li class="page-item"><a class="page-link" href="">20</a></li>
                         <li class="page-item" >

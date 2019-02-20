@@ -4,7 +4,7 @@
     //sistem templating
 
     //include header
-    include "header.php";
+    include "Template/header.php";
 
     //include all pages
     // if ($_GET['page'] == 'article' || $_GET['page'] == '') {
@@ -16,20 +16,23 @@
     // }
     switch (@$_GET['page']) {
         case 'artikel':
-            include "artikel.php";
+            include "Template/artikel.php";
         break;
         case '';
-            include "artikel.php";
+            include "Template/artikel.php";
         break;
         case 'post';
-            include "post.php";
+            include "Template/post.php";
         break;
         case 'kategori';
-            include "kategori.php";
+            include "Template/kategori.php";
+        break;
+        case 'blank_page';
+            include "Template/blank_page.php";
         break;
 
     }
 
     //include footer
-    include "footer.php";
+    include "Template/footer.php";
 ?>

@@ -15,6 +15,9 @@ body{
     white-space: nowrap;
     font-weight: 700;
 }
+.card-img-top{
+    
+}
 .card{
     word-wrap: break-word;
 }
