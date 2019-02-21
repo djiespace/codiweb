@@ -21,16 +21,10 @@
         </div>
         <div class="form-row my-4">
             <div class="col">
-                <a onclick="goBack()" class="btn btn-default bg-biru float-left text-white" role="button"><i class="fa fa-arrow-left"></i> Sebelumnya</a>
-                <button type="submit" class="btn btn-default bg-biru float-right" name="update_artikel"><i class="fa fa-check"></i> Update</button>
+                <button type="submit" class="btn btn-primary float-right" name="update_artikel"><i class="fa fa-check"></i> Update</button>
             </div>
         </div>
     </form> 
     </div>
 </div>
-<script>
-    function goBack() {
-        window.history.back();
-    }
-</script>
 

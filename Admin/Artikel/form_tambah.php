@@ -39,17 +39,11 @@
                         <label for="inputIsi">
                             Isi Artikel :
                         </label>
-                        <textarea type="text" class="form-control" id="inputIsi" name="isi"></textarea>
+                        <textarea type="text" class="form-control ckeditor" id="inputIsi ckeditor" name="isi"></textarea>
                     </div>
-                    <a onclick="goBack()" class="btn btn-default bg-biru float-left text-white" role="button"><i class="fa fa-arrow-left"></i> Sebelumnya</a>
-                    <button class="btn btn-default bg-biru float-right" type="submit"><i class="fa fa-check"></i> Upload</button>
+                    <button class="btn btn-primary float-right" type="submit"><i class="fa fa-check"></i> Upload</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
-<script>
-    function goBack() {
-        window.history.back();
-    }
-</script>

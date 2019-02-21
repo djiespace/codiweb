@@ -14,24 +14,23 @@
     <div class="container">
         <div class="row">
             <?php
-                $batas = 6;	
-                $halaman = @$_GET['page'];
-                if(empty($halaman)){
-                    $posisi = 0;
-                    $halaman = 1;
-                }else{
-                    $posisi = ($halaman - 1) * $batas;
-                }
-                $query = mysqli_query($db, "SELECT * FROM tbl_artikel ORDER BY Tanggal_artikel DESC LIMIT $posisi,$batas");
-                $row = mysqli_num_rows($query);
-                while($artikel = mysqli_fetch_array($query)){
+                $halaman = 6;
+                $page = isset($_GET["halaman"]) ? (int)$_GET["halaman"] : 1;
+                $mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
+                $result = mysqli_query($db,"SELECT * FROM tbl_artikel");
+                $total = mysqli_num_rows($result);
+                $pages = ceil($total/$halaman);          
+                $query = mysqli_query($db, "SELECT * FROM tbl_artikel ORDER BY Tanggal_artikel DESC LIMIT $mulai,$halaman")or die(mysql_error);;
+                $no = $mulai+1; 
+                while($artikel = mysqli_fetch_assoc($query)){
             ?>
             <div class="col-md-6 col-lg-4 mb-4 d-flex">
                 <div class="card card-shadow">
+                    <a hidden><?=$no?></a>
                     <img class="card-img-top lazyloaded" src="http://localhost/codiweb/image.php?img=artikel/<?=$artikel['Img_artikel']?>">
                     <div class="card-body">
                         <h5 class="card-title">
-                            <a class="text-dark" href="?page=post&id=<?=$artikel['Id_artikel']?>"> <?=$artikel['Judul_artikel']?></a>
+                            <a class="text-dark" href="?page=post&slug=<?=$artikel['Slug_artikel']?>"> <?=$artikel['Judul_artikel']?></a>
                         </h5>
                     </div>
                 </div>
@@ -40,37 +39,12 @@
             } 
             ?>
             <br>
-            <?php
-                $paging = mysqli_query($db,"SELECT * FROM tbl_artikel");
-                $jumData = mysqli_num_rows($paging);
-                $jumHalaman = ceil($jumData/$batas);
-            ?>
             <div class="col-12 mt-4">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link"  href="" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
-                            </a>  
-                        </li>
-                        <?php 
-                        for($u=1; $u<=$jumHalaman; $u++){
-                            if ($u != $halaman) {
-                                echo '<li class="page-item"><a class="page-link" href=\"?page=artikel&halaman='.$u.'">'.$u.'</a></li>';
-                            }else{
-                                echo '<li class="page-item"><a class="page-link" href="">$u</a></li>';
-                            }
-                        }
-                        ?>
-                        <li class="disabled page-item"><a class="page-link" href="">...</a></li>
-                        <li class="page-item"><a class="page-link" href="">20</a></li>
-                        <li class="page-item" >
-                            <a class="page-link" href="" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                            </a> 
-                        </li>
+                        <?php for ($i=1; $i<=$pages ; $i++){ ?>
+                        <li class="page-item"><a class="page-link" href="?page=artikel&halaman=<?=$i?>"><?=$i?></a></li>
+                        <?php } ?>
                     </ul>
                 </nav>
             </div>
@@ -124,3 +98,8 @@
         </div>
     </div>
 </section>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

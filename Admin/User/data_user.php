@@ -6,7 +6,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-3">
-                <img src="http://localhost/codiweb/image.php?img=<?=$artikel['Img_user']?>" class="img-thumbnail mx-auto d-block" width="200px" height="200px">
+                <img src="http://localhost/codiweb/image.php?img=<?=$data['Img_user']?>" class="img-thumbnail mx-auto d-block" width="200px" height="200px">
             </div>
             <div class="col-9">
                 <h2 class="d-inline-block ">Data User</h2>
@@ -32,17 +32,13 @@
                             <td><?=$data['Username']?></td>
                         </tr>
                         <tr>
-                            <th class="row">Password :</th>
-                            <td><?=$data['Password']?></td>
-                        </tr>
-                        <tr>
                             <th class="row">Deskripsi :</th>
-                            <td><?=$data['Nama_lengkap']?></td>
+                            <td><?=$data['Deskripsi']?></td>
                         </tr>
                         
                     </tbody>
                 </table>
-                <a class="btn btn-default bg-hijau float-right" href="?page=update_user" role="button">
+                <a class="btn btn-primary float-right" href="?page=update_user&id=<?=$data['Id_user']?>" role="button">
                     <i class="fa fa-edit"></i> Update Data
                 </a>
             </div>

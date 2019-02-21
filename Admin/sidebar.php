@@ -15,9 +15,9 @@
             <div class="dropdown-container">
                 <a href="?page=data_kategori"><i class="fa fa-list"></i> Data Kategori</a>
                 <a href="?page=tambah_kategori"><i class="fa fa-edit"></i> Tambah Kategori</a>
-            </div>            
-            <a href="?data_page" class="list-group-item list-group-item-action">Data Page</a>
-            <a href="login.php" class="list-group-item list-group-item-action">Logout</a>
+            </div>  
+            <a href="?page=data_page" class="list-group-item list-group-item-action"><i class="fa fa-file"></i> Data Page</a>          
+            <a href="login.php?pesan=logout" class="list-group-item list-group-item-action">Logout</a>
         </ul>
     </div>
    

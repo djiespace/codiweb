@@ -44,17 +44,11 @@
                         <label for="inputIsi">
                             Isi Artikel :
                         </label>
-                        <textarea type="text" name="isi" class="form-control" id="inputIsi"><?php echo $data['Isi_artikel']; ?></textarea>
+                        <textarea type="text" name="isi" class="form-control ckeditor" id="inputIsi ckeditor"><?php echo $data['Isi_artikel']; ?></textarea>
                     </div>
-                    <a onclick="goBack()" class="btn btn-default bg-biru float-left text-white" role="button"><i class="fa fa-arrow-left"></i> Sebelumnya</a>
-                    <button type="submit" class="btn btn-default bg-biru float-right"><i class="fa fa-check"></i> Update</button>
+                    <button type="submit" class="btn btn-primary float-right"><i class="fa fa-check"></i> Update</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
-<script>
-    function goBack() {
-        window.history.back();
-    }
-</script>

@@ -8,7 +8,7 @@
             while($data=mysqli_fetch_array($query)){
         ?>
         <div class="list-group list-group-flush">
-            <a href="?page=kategori" class="list-group-item list-group-item-action flex-column align-items-start">
+            <a href="?page=kategori&id=<?=$data['Id_kategori']?>" class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="row">
                     <div class="col-12" style="font-size: 20px;">
                         <div class="align-midle">

@@ -10,23 +10,31 @@
         <div class="form-group">
             <input type="email" class="form-control" placeholder="*Email">
         </div>
-        <button class="btn codiweb btn-block">Ya, Saya Mau!</button>
+        <button class="btn btn-primary btn-block">Ya, Saya Mau!</button>
     </form>
     <div class="card">
         <div class="card-body">
             <h4 class="card-title m-0">Artikel Terbaru</h4>
         </div>
         <div class="list-group list-group-flush">
-            <a class="list-group-item list-group-item-action flex-column align-items-start">
+        <?php
+            $batas = 5;
+            $query = mysqli_query($db, "SELECT * FROM tbl_artikel ORDER BY Tanggal_artikel DESC LIMIT $batas");
+            $row = mysqli_num_rows($query);
+            while($artikel = mysqli_fetch_array($query)){
+        ?>
+            <a class="list-group-item list-group-item-action flex-column align-items-start" href="?page=post&slug=<?=$artikel['Slug_artikel']?>">
                 <div class="row">
                     <div class="col-12">
-                        <img src="Asset/img/pengenalan-html5-untuk-pemula.svg" class="rounded float-left mr-3" width="100" height="auto">
-                        <h6 class="mb-1">Pengenalan HTML5 untuk pemula</h6>
-                        <small class="text-secondary">10 Des 2018</small>
+                        <img src="http://localhost/codiweb/image.php?img=artikel/<?=$artikel['Img_artikel']?>" class="rounded float-left mr-3" width="100" height="auto">
+                        <h6 class="mb-1"><?=$artikel['Judul_artikel']?></h6>
+                        <small class="text-secondary"><?=$artikel['Tanggal_artikel']?></small>
                     </div>
-
                 </div>
             </a>
+        <?php
+        }
+        ?>
         </div>
     </div>
 </div>

@@ -30,6 +30,15 @@
         case 'blank_page';
             include "Template/blank_page.php";
         break;
+        case 'page';
+            include "Template/page.php";
+        break;
+        case 'arsip';
+            include "Template/arsip.php";
+        break;
+        case 'search';
+            include "Template/search.php";
+        break;
 
     }
 

@@ -2,8 +2,8 @@ body{
     font-family: "PT Sans",Roboto,sans-serif;    
     color: #383838;   
 }
-.bg-codiweb{
-    background: #21618cff;
+*.bg-codiweb{
+    background: #21618c !important;
 }
 .navbar-brand{
     display: inline-block;

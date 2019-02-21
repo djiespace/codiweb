@@ -17,18 +17,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<link rel="icon" href="../Asset/img/codiweb-logo-2.svg">
 	<link rel="stylesheet" type="text/css" href="../Asset/css/main_admin.css"/>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-	
-	<!-- <link rel="stylesheet" type="text/css" href="../Asset/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+	<link rel="stylesheet" type="text/css" href="../Asset/css/bootstrap-grid.min.css"/>
+	<link rel="stylesheet" type="text/css" href="../Asset/css/bootstrap-reboot.min.css"/>
+	<link rel="stylesheet" type="text/css" href="../Asset/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="../Asset/line-awesome/css/line-awesome-font-awesome.min.css"/>
 	<link rel="stylesheet" type="text/css" href="../Asset/line-awesome/css/line-awesome.min.css"/>
-	<script type="text/javascript" src="../Asset/js/jquery.js"></script>
-	<script type="text/javascript" src="../Asset/js/bootstrap.min.js"></script> -->
+	
 	
 </head>
 <body class="bg-light">
@@ -72,6 +69,14 @@
                         echo "<p><i class=fa fa-success></i> Anda Telah Gagal Update Kategori</p>";
                     }if($_GET['pesan'] == "sukses_update_kategori"){
                         echo "<p><i class=fa fa-success></i> Anda Telah Berhasil Update Kategori</p>";
+                    }if($_GET['pesan'] == "sukses_update_user"){
+                        echo "<p><i class=fa fa-success></i> Anda Telah Berhasil Update Profile</p>";
+                    }if($_GET['pesan'] == "gagal_update_user"){
+                        echo "<p><i class=fa fa-success></i> Anda Telah Gagal Update Profile</p>";
+                    }if($_GET['pesan'] == "sukses_update_page"){
+                        echo "<p><i class=fa fa-success></i> Anda Telah Berhasil Update Page</p>";
+                    }if($_GET['pesan'] == "gagal_update_page"){
+                        echo "<p><i class=fa fa-success></i> Anda Telah Gagal Update Page</p>";
                     }if($_GET['pesan'] == "berhasil_login"){
                         echo "<p><i class=fa fa-success></i>Selamat Datang ". $_SESSION['username'] ." semoga harimu menyenangkan";
                     }
@@ -128,8 +133,20 @@
 						case 'update_user':
 							include "User/form_update.php";
 						break;
-						case 'panduan':
-							include "panduan.php";
+						case 'update_user_action':
+							include "User/update.php";
+						break;
+						case 'data_page':
+							include "Page/data_page.php";
+						break;
+						case 'detail_page':
+							include "Page/detail.php";
+						break;
+						case 'update_page':
+							include "Page/form_update.php";
+						break;
+						case 'update_page_action':
+							include "Page/update.php";
 						break;
 					}
 				?>
@@ -147,7 +164,13 @@
 			</div>
 		</div>
 	</footer>
-
+	<script type="text/javascript" src="../Asset/js/jquery.js"></script>
+	<script type="text/javascript" src="../Asset/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../Asset/js/main.js"></script>
+	<script src="../Asset/ckeditor/ckeditor.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
 </body>
 </html>
 	

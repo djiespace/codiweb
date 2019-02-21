@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12">
                 <h2 class="d-inline-block ">Data Kategori</h2>
-                <a href="?page=tambah_kategori" role="button" class="btn btn-default bg-biru float-right">
+                <a href="?page=tambah_kategori" role="button" class="btn btn-primary float-right">
                     <i class="fa fa-plus"></i> Tambah Kategori
                 </a>
             </div>
@@ -21,24 +21,15 @@
                     </thead>
                     <tbody>
                             <?php
-                                $no = 1;
-                                if(isset($_GET['pageno'])){
-                                    $pageno = $_GET['pageno'];
-                                }else{
-                                    $pageno = 1;
-                                }
-                                $records_per_page = 6;
-                                $offset = ($pageno-1) * $records_per_page; 
-                                $pages_sql = mysqli_query($db, "SELECT COUNT(Id_kategori) AS jumKtg FROM tbl_kategori");
-                                $row = mysqli_fetch_array($pages_sql)[0];
-                                $row_page = ceil($row / $records_per_page);
-                                
-                                $sql = mysqli_query($db, "SELECT * FROM tbl_kategori LIMIT $offset,$records_per_page");
-                                while($data = mysqli_fetch_array($sql)){
-                                    //echo "<br>test";
-                                
-                                // var_dump(mysqli_fetch_array($sql));
-                                // die();
+                                $halaman = 6;
+                                $page = isset($_GET["halaman"]) ? (int)$_GET["halaman"] : 1;
+                                $mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
+                                $result = mysqli_query($db,"SELECT * FROM tbl_kategori");
+                                $total = mysqli_num_rows($result);
+                                $pages = ceil($total/$halaman);            
+                                $query = mysqli_query($db,"SELECT * FROM tbl_kategori ORDER BY Id_kategori ASC LIMIT $mulai, $halaman")or die(mysql_error);
+                                $no =$mulai+1;
+                                while ($data = mysqli_fetch_assoc($query)) {
                                 ?>
                             <tr>
                                 <th class="row"><?php echo $no++; ?></th>
@@ -55,19 +46,12 @@
                             ?>
                     </tbody>
                 </table>
-                <?php  
-                    
-                    
-                ?>
-                <p class="float-left">Jumlah Data : <?php echo $row; ?></p>
+                <p class="float-left">Jumlah Data : <?php echo $pages; ?></p>
                 <nav aria-label="Page navigation example" class="float-right">
                     <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="?page=data_kategori&pageno=-1">First</a></li>
-                        <li class="page-item <?php if($pageno >= 1){echo 'disabled';}?>">
-                            <a class="page-link" href="<?php if($pageno <= 1){echo '#';} else {echo '?page=data_kategori&pageno='.($pageno - 1);} ?>">prev</a>
-                        </li>
-                        <li class="page-item<?php if($pageno >= $row_page){echo 'disabled';}?>"><a class="page-link" href="<?php if($pageno >= $row_page){echo '#';} else {echo '?page=data_kategori&pageno='.($pageno + 1);}?>"></a></li>
-                        <li class="page-item"><a class="page-link" href="?page=data_kategori&pageno=<?=$row_page++;?>">Next</a></li>
+                    <?php for ($i=1; $i<=$pages ; $i++){ ?>
+                        <li class="page-item"><a class="page-link" href="?page=data_kategori&halaman=<?=$i?>"><?=$i?></a></li>
+                    <?php } ?>
                     </ul>
                 </nav>
             </div>

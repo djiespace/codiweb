@@ -3,9 +3,9 @@
         <div class="col-sm-12 col-lg-8 post-outer mb-2">
             <article class="card">
                 <?php
-                    if(isset($_GET['id']) && !empty($_GET['id'])){
-                        $id = $_GET['id'];
-                        $query = mysqli_query($db, "SELECT * FROM tbl_artikel WHERE Id_artikel='$id' ORDER BY Tanggal_artikel DESC");
+                    if(isset($_GET['slug']) && !empty($_GET['slug'])){
+                        $slug = $_GET['slug'];
+                        $query = mysqli_query($db, "SELECT * FROM tbl_artikel WHERE Slug_artikel='$slug' ORDER BY Tanggal_artikel DESC");
                         if(mysqli_num_rows($query)){
                             while($artikel = mysqli_fetch_array($query)){
                 ?>
@@ -19,11 +19,6 @@
                     </div>
                     <h2 class="card-title mb-3"><?=$artikel['Judul_artikel']?></h2>
                     <hr>
-                    <div>
-                        <span class="badge badge-primary">
-                            <a href="" class="text-white"></a>
-                        </span>
-                    </div>
                     <div class="post-content my-5">
                         <p>
                             <img src="http://localhost/codiweb/image.php?img=artikel/<?=$artikel['Img_artikel']?>" class="img-fluid">
@@ -32,12 +27,11 @@
                             <?=$artikel['Isi_artikel']?>
                         </p>
                     </div>
-                    
                 </div>
                 <?php
                         }
                     }
-                }
+                } 
                 ?>
             </article>
         </div>

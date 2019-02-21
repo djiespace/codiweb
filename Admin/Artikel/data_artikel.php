@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12">
                 <h2 class="d-inline-block ">Data Artikel</h2>
-                <a href="?page=tambah_artikel" role="button" class="btn btn-default bg-biru float-right">
+                <a href="?page=tambah_artikel" role="button" class="btn btn-primary float-right">
                     <i class="fa fa-plus"></i> Tambah Artikel
                 </a>
             </div>
@@ -23,10 +23,16 @@
                     </thead>
                     <tbody>
                         <?php
-                            $no = 1;                            
-                            $query = mysqli_query($db, "SELECT * FROM tbl_artikel ORDER BY Id_artikel DESC");
-                            $num = mysqli_num_rows($query);
-                            while($artikel=mysqli_fetch_array($query)){
+                             
+                            $halaman = 5;
+                            $page = isset($_GET["halaman"]) ? (int)$_GET["halaman"] : 1;
+                            $mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
+                            $result = mysqli_query($db,"SELECT * FROM tbl_artikel");
+                            $total = mysqli_num_rows($result);
+                            $pages = ceil($total/$halaman);                           
+                            $query = mysqli_query($db, "SELECT * FROM tbl_artikel ORDER BY Id_artikel DESC LIMIT $mulai, $halaman")or die(mysql_error);
+                            $no = $mulai+1;
+                            while($artikel=mysqli_fetch_assoc($query)){
 
                         ?>
                             <tr>
@@ -43,9 +49,18 @@
                             </tr>
                             <?php 
                                 }
+                                mysqli_close($db);
                                 ?>
                     </tbody>
                 </table>
+                <p class="float-left">Jumlah Data : <?php echo $total; ?></p>
+                <nav aria-label="Page navigation example" class="float-right">
+                    <ul class="pagination">
+                    <?php for ($i=1; $i<=$pages ; $i++){ ?>
+                        <li class="page-item"><a class="page-link" href="?page=data_artikel&halaman=<?=$i?>"><?=$i?></a></li>
+                    <?php } ?>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
