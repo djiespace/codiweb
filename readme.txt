@@ -8,6 +8,7 @@ Username    : marketadjie
 Password    : 12345
 
 --Notes--
+* Ikuti Panduan.pdf yang disediakan untuk menjalankan project ini
 Masih banyak kekurangan di project ini 
 1. Subribe email.
 2. Keamanan panel Administator.
